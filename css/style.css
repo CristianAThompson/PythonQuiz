@@ -1,0 +1,13 @@
+form {
+	display: none;
+}
+#parent {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	overflow: auto;
+	max-height: 320px;
+	text-align: center;
+	vertical-align: text-bottom;
+}
