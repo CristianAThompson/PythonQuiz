@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html> 
+<head> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script> 
+<script src="http://www.skulpt.org/static/skulpt.min.js" type="text/javascript"></script> 
+<script src="http://www.skulpt.org/static/skulpt-stdlib.js" type="text/javascript"></script> 
+
+</head> 
+
+<body> 
+
+<script type="text/javascript"> 
+// output functions are configurable.  This one just appends some text
+// to a pre element.
+function outf(text) { 
+    var mypre = document.getElementById("output"); 
+    mypre.innerHTML = mypre.innerHTML + text; 
+} 
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+            throw "File not found: '" + x + "'";
+    return Sk.builtinFiles["files"][x];
+}
+
+function runit() { 
+   var prog = document.getElementById("yourcode").value; 
+   var mypre = document.getElementById("output"); 
+   mypre.innerHTML = ''; 
+   Sk.pre = "output";
+   Sk.configure({output:outf, read:builtinRead}); 
+   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'mycanvas';
+   var myPromise = Sk.misceval.asyncToPromise(function() {
+       return Sk.importMainWithBody("<stdin>", false, prog, true);
+   });
+   myPromise.then(function(mod) {
+       console.log('success');
+   },
+       function(err) {
+       console.log(err.toString());
+   });
+} 
+</script> 
+
+<h3>Try This</h3>
+<button type="button" onclick="runit()">Run</button>  
+<form> 
+<textarea id="yourcode" cols="80" rows="10">
+<!-- My Python Code to propogate the quiz -->
+
+'''outlines the text to be displayed and the possible answers for all 3 difficulties'''
+
+blanks = ["blank1", "blank2", "blank3", "blank4"]
+
+e_text = ("""This quiz is an example of something written in blank1. 
+  \nIt was a fanatastic blank2 to practice what we learned. 
+  \nIt includes things like if and blank3 loops. 
+  \nIf you have any blank4 it is a great idea to look around.
+  \nTry to find other solutions or information that will help you.""")
+e_answer = ["python", "chance", "while", "questions"]
+
+
+
+m_text = ("""In web development there are lots of different blank1! 
+  \nKnowing which ones are right for you is blank2 to having the skills to work as a developer.  
+  \nblank3 is one of the best languages to learn as a new developer. 
+  \nIt gives you many cues to context and syntax. 
+  \nBut never blank4 to have fun with what you decide to do!""")
+m_answer = ["languages", "critical", "HTML", "forget"]
+
+
+h_text = (""" \nI must not blank1
+  \n Fear is the blank2.
+  \n Fear is the little-death that brings total obliteration. 
+  \n I will face my fear. 
+  \n I will permit it to pass over me and through me. 
+  \n And when it has gone past I will turn the blank3 eye to see its path. 
+  \n Where the fear has gone there will be nothing. 
+  \n Only blank4 will remain.""")
+h_answer = ["fear", "mind-killer", "inner", "I"]
+
+
+text_list = [e_text, m_text, h_text]
+answer_select = [e_answer, m_answer, h_answer]
+
+
+
+def runGame(text_list, answer_select):
+
+  '''This is the procedure that takes the defined text_list and answer_select inputs
+   as defined in startGame and creates the initial block of text for the user to read based on their selection.
+   It takes the 0 in answer to define the index of blanks to start where the user will attempt to fill their answer.
+   if the user guesses correctly it takes the answer of the index matching the first location in answer_select
+   then it replaces and prints the new string with the correct answer. If the answer is incorrect, it prints the text as it was before the guess
+   and requests the user try again. Once they have correctly answered all the blanks it will display that they finished and prompt if they wish to attempt the next difficulty '''
+  
+  answer = 0
+  text = blanks[answer]
+  new_text = text_list.replace(text, answer_select[answer])
+
+
+  print text_list + "\n"
+  guess = raw_input("Type what you think belongs in the blank:")
+  while answer < len(answer_select):
+    if guess in answer_select[answer]:
+      text = blanks[answer]
+      new_text = new_text.replace(text, answer_select[answer])
+      print new_text + "\n"
+      answer = answer + 1
+      guess = raw_input("Please fill in the next blank, or if none remain press enter:")
+    else:
+      print "Sorry that was incorrect."
+      print new_text + "\n"
+      guess = raw_input("Please try again:")
+    if answer == 4:
+      print "Hurray you did it!" + "\n"
+      restart_input = raw_input("Would you like to try the next difficulty?")
+      if restart_input.lower() == "yes":
+        startGame()
+      else:
+        print "Thanks for playing! Hope you had some fun."
+     
+
+    
+    
+
+
+  
+
+    
+
+
+
+def startGame():
+  '''Defines the difficulty of the game selected by the user by using a user input and setting the level accordingly. 
+  After which it minuses 1 from the level selected to find the index for both the text_list and answer_select needed corresponding to the difficulty'''
+  level = 0
+  print "Welcome to my quiz, hopefully you have yourself a good time while playing!"
+  difficulty = raw_input("Please type select a difficulty by typing Easy, Medium, or Hard:")
+  if difficulty.lower() == "easy":
+    level = 1
+    print "Let's get started!" + "\n"
+  elif difficulty.lower() == "medium":
+    level = 2
+    print "Let's get started! This one is a little Tougher." + "\n"
+  elif difficulty.lower() == "hard":
+    level = 3
+    print "Let's get started! This one will be a doozy!" + "\n"
+  else:
+    print "Invalid Difficulty"
+  if level > 0:
+    runGame(text_list[level - 1], answer_select[level - 1])
+
+
+
+
+
+
+
+
+
+
+
+startGame()
+
+</textarea><br />
+</form> 
+<pre id="output" ></pre> 
+<div id="mycanvas"></div> 
+
+</body> 
+
+</html> 
