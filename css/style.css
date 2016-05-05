@@ -12,6 +12,7 @@ form {
 	justify-content: left;
 	overflow: auto;
 	max-height: 320px;
+	max-width: 1000px;
 	text-align: center;
 	vertical-align: text-bottom;
 	position: absolute; 
@@ -21,4 +22,17 @@ form {
 div {
 	background-color: #fff;
 	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzMwMCcgaGVpZ2h0PSczMDAnPgoJPGRlZnM+CgkJPGZpbHRlciBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9J3NSR0InIGlkPSdmaWx0ZXIzMDAxJz4KCQkJPGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzEwMCAuODUnIG51bU9jdGF2ZXM9JzEnLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IGhlaWdodD0nMjAwJScgd2lkdGg9JzIwMCUnIHN0eWxlPSdmaWx0ZXI6dXJsKCNmaWx0ZXIzMDAxKScgLz4KCTxyZWN0IGhlaWdodD0nMjAwJScgd2lkdGg9JzIwMCUnIHN0eWxlPSdmaWxsOiNmZmY7ZmlsbC1vcGFjaXR5OjAuNzU7Jy8+Cjwvc3ZnPg==); 
+}
+#container {
+	position: static;
+	bottom: 100%;
+	text-align: center;
+}
+h1 {
+	font-size: 55px;
+}
+button {
+	position: absolute; 
+	bottom: 85%;
+	right: 48.5%;
 }
