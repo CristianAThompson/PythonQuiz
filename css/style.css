@@ -1,8 +1,12 @@
+body {
+	background-color: #000;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTIwJyBoZWlnaHQ9JzIwJyB2aWV3Qm94PScwIDAgMTIwIDIwJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMSc+Cgk8Y2lyY2xlIGN4PScxMCcgY3k9JzEwJyByPSc4JyBmaWxsPScjMTExJy8+Cgk8Y2lyY2xlIGN4PSczMCcgY3k9JzEwJyByPSc4JyBmaWxsPScjMTUxNTE1Jy8+Cgk8Y2lyY2xlIGN4PSc1MCcgY3k9JzEwJyByPSc4JyBmaWxsPScjMTkxOTE5Jy8+Cgk8Y2lyY2xlIGN4PSc3MCcgY3k9JzEwJyByPSc4JyBmaWxsPScjMWIxYjFiJy8+Cgk8Y2lyY2xlIGN4PSc5MCcgY3k9JzEwJyByPSc4JyBmaWxsPScjMTkxOTE5Jy8+Cgk8Y2lyY2xlIGN4PScxMTAnIGN5PScxMCcgcj0nOCcgZmlsbD0nIzE1MTUxNScvPiAgCjwvc3ZnPg==);
+}
 form {
 	display: none;
 }
 #parent {
-	position: relative;
+/*	position: relative;*/
 	display: flex;
 	align-items: center;
 	justify-content: left;
@@ -10,4 +14,11 @@ form {
 	max-height: 320px;
 	text-align: center;
 	vertical-align: text-bottom;
+	position: absolute; 
+	bottom: 0;
+	right: 35%;
+}
+div {
+	background-color: #fff;
+	background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZlcnNpb249JzEuMScgd2lkdGg9JzMwMCcgaGVpZ2h0PSczMDAnPgoJPGRlZnM+CgkJPGZpbHRlciBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9J3NSR0InIGlkPSdmaWx0ZXIzMDAxJz4KCQkJPGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzEwMCAuODUnIG51bU9jdGF2ZXM9JzEnLz4KCQk8L2ZpbHRlcj4KCTwvZGVmcz4KCTxyZWN0IGhlaWdodD0nMjAwJScgd2lkdGg9JzIwMCUnIHN0eWxlPSdmaWx0ZXI6dXJsKCNmaWx0ZXIzMDAxKScgLz4KCTxyZWN0IGhlaWdodD0nMjAwJScgd2lkdGg9JzIwMCUnIHN0eWxlPSdmaWxsOiNmZmY7ZmlsbC1vcGFjaXR5OjAuNzU7Jy8+Cjwvc3ZnPg==); 
 }

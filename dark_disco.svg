@@ -1,0 +1,8 @@
+<svg width='120' height='20' viewBox='0 0 120 20' xmlns='http://www.w3.org/2000/svg' version='1.1'>
+	<circle cx='10' cy='10' r='8' fill='#111'/>
+	<circle cx='30' cy='10' r='8' fill='#151515'/>
+	<circle cx='50' cy='10' r='8' fill='#191919'/>
+	<circle cx='70' cy='10' r='8' fill='#1b1b1b'/>
+	<circle cx='90' cy='10' r='8' fill='#191919'/>
+	<circle cx='110' cy='10' r='8' fill='#151515'/>  
+</svg>
